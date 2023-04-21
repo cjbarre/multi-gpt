@@ -12,6 +12,7 @@
 (defrecord GPTAPIImpl [api-key org-id model]
   GPTAPI
   (send-request [this messages {:keys [temperature top-p n stream stop max-tokens presence-penalty frequency-penalty] :or {temperature 1 top-p 1 n 1 stream false stop nil max-tokens nil presence-penalty 0 frequency-penalty 0}}]
+    (println (str "sending request " (java.util.UUID/randomUUID)))
     (let [url "https://api.openai.com/v1/chat/completions"
           headers {"Authorization" (str "Bearer " api-key)
                    "OpenAI-Organization" org-id
