@@ -12,15 +12,15 @@
   (def system (setup-system ""
                             "org-Jm9K7Bqobj7HWLK6mPRsJVZR"
                             "gpt-3.5-turbo")) 
-  
-  (def conversation-id (create-conversation system))
 
-  (clojure.pprint/pprint (get-conversation system conversation-id))
+  (def conversation (create-conversation system))
 
-  (update-conversation system conversation-id {:role "system" :content "You will help me develop the next breakthrough in distributed systems."})
+  (update-conversation system conversation {:role "system" :content "You will help me develop the next breakthrough in distributed systems."})
 
-  (def chat (fn [message] (update-conversation system conversation-id {:role "user" :content message})))
+  (def chat (fn [message] (update-conversation system conversation {:role "user" :content message})))
 
-  (chat "Cool, what happens first?")
+  (chat "Please provide the most cutting edge research topics about these systems.")
+
+  (clojure.pprint/pprint (get-conversation system conversation))
   
   )
