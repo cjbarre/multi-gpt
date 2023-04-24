@@ -6,8 +6,8 @@
   ;;
   ;; Setup the system (includes a conversation manager)
   ;;
-  (def system (setup-system "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"
-                            "org-Jm9K7Bqobj7HWLK6mPRsJVZR"
+  (def system (setup-system "api-key"
+                            "org-id"
                             "gpt-3.5-turbo"))
   ;;
   ;; Create a conversation
