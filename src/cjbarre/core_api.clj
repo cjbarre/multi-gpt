@@ -39,7 +39,7 @@
                     (put! response-chan (parse-response this response))
                     (async/close! response-chan))
                   (fn [exception]
-                    (put! response-chan exception)
+                    (put! response-chan {:core-api/error exception})
                     (async/close! response-chan)))
       response-chan))
   (parse-response [this response]
