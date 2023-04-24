@@ -1,7 +1,7 @@
-(ns cjbarre.repl-interface
-  (:require [cjbarre.core-api :as core-api]
-            [cjbarre.conversation-manager :as cm]
-            [cjbarre.task-manager :as tm]))
+(ns multi-gpt.repl-interface
+  (:require [multi-gpt.core-api :as core-api]
+            [multi-gpt.conversation-manager :as cm]
+            [multi-gpt.task-manager :as tm]))
 
 (defn setup-system [api-key org-id model]
   (let [gpt-api (core-api/create-gpt-api api-key org-id model)

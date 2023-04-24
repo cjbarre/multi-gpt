@@ -1,5 +1,5 @@
-(ns cjbarre.task-manager
-  (:require [cjbarre.conversation-manager :as cm]
+(ns multi-gpt.task-manager
+  (:require [multi-gpt.conversation-manager :as cm]
             [clojure.core.async :refer [<! go]]
             [clojure.string :as s]))
 

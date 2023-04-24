@@ -1,7 +1,7 @@
-(ns cjbarre.conversation-manager
-  (:require [cjbarre.core-api :as core-api]
+(ns multi-gpt.conversation-manager
+  (:require [multi-gpt.core-api :as core-api]
             [clojure.core.async :refer [<! go]]
-            [cjbarre.conversation-manager :as cm]))
+            [multi-gpt.conversation-manager :as cm]))
 
 ;; Define the Conversation Manager protocol
 (defprotocol ConversationManager
