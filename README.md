@@ -9,9 +9,16 @@ It's early days, but I intend to use this in my work and also to learn the funda
 ## Contact
 If you're interested, want to help, or need help you can find me in the [#multi-gpt](https://clojurians.slack.com/archives/C054R2069AQ) channel on the Clojurians slack.
 
- ## Road Map
- - Implement the external memory architecture presented in this paper: https://arxiv.org/abs/2304.03442
- - Implement a durable version of the conversation manager
+## Current Features
+- In memory Conversation Manager
+  - Keeps track of multiple conversations and manages sending the full message context on each chat request.
+- In memory Task Manager
+  - Beginnings of agents.
+## Road Map
+ - External memory architecture presented in the paper: [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) 
+ - External tool usage
+ - Durable Conversation Manager
+ - Durable Task Manager
 
 ## Usage
 
