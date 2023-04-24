@@ -19,6 +19,7 @@ If you're interested, want to help, or need help you can find me in the [#multi-
  - External tool usage
  - Durable Conversation Manager
  - Durable Task Manager
+ - Better notebook support / examples?
 
 ## Usage
 
