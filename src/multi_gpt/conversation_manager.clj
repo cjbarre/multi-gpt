@@ -35,7 +35,7 @@
             (let [gpt-response (<! response-chan)]
               (if-not (:core-api/error gpt-response)
                 (swap! db update-in [id :messages] concat [gpt-response])
-                (swap! db update-in [id :error] assoc gpt-response))
+                (swap! db update-in [id] #(assoc % :error gpt-response)))
               gpt-response)))
         (throw (ex-info "Conversation is not active" {:conversation-id id})))
       (throw (ex-info "Conversation not found" {:conversation-id id}))))

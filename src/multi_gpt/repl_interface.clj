@@ -19,14 +19,8 @@
 (defn create-task [system task-description]
   (tm/create-task (:task-manager system) task-description))
 
-(defn generate-sub-tasks [system task]
-  (tm/generate-sub-tasks (:task-manager system) task))
-
-(defn process-sub-tasks [system sub-tasks]
-  (tm/process-sub-tasks (:task-manager system) sub-tasks))
-
-(defn generate-sub-task-result [system sub-task]
-  (tm/generate-sub-task-result (:task-manager system) sub-task))
+(defn process-sub-tasks [system task-id]
+  (tm/process-sub-tasks (:task-manager system) (get-in @(-> system :task-manager :db) [task-id :sub-tasks])))
 
 (defn create-conversation [system]
   (cm/create-conversation (:conversation-manager system)))
