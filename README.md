@@ -29,6 +29,12 @@ Here's how to get started with the conversation manager, which you can also find
 (require '[multi-gpt.repl-interface :refer :all]
          '[clojure.pprint :refer [pprint]])
 ;;
+;; Run below if you want to use portal to see the output
+;;
+(require '[portal.api :as p])
+(def p (p/open {:launcher :vs-code}))
+(add-tap #'p/submit)
+;;
 ;; Setup the system (includes a conversation manager)
 ;;
 (def system (setup-system "api-key"
@@ -49,10 +55,20 @@ Here's how to get started with the conversation manager, which you can also find
 ;; Add a watch to print to the REPL (I also use portal and tap>)
 ;;
 (add-watch (-> system :conversation-manager :db)
-           :on-update
-           (fn [_ _ _ new-state]
-            (pprint
-             (get new-state (:id conversation)))))
+            :on-update
+            (fn [_ _ _ new-state]
+              ;;
+              ;; If you want to view output with portal uncomment this
+              ;;
+              #_(tap>  (with-meta (update (get new-state (:id conversation))
+                                          :messages
+                                          reverse)
+                        {:portal.viewer/default :portal.viewer/tree}))
+              ;;
+              ;; Comment out below if using portal
+              ;;
+              (pprint
+                (get new-state (:id conversation)))))
 
 ;;
 ;; Initialize your conversation with a system prompt
