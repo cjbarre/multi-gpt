@@ -6,7 +6,10 @@ It's a work in progress, but it has a working in-memory conversation manager (co
 
 It's early days, but I intend to use this in my work and also to learn the fundamentals of interacting with language models.
 
-On the road map is an implementation of the external memory architecture presented in this paper: https://arxiv.org/abs/2304.03442
+
+ ## Road Map
+ - Implement the external memory architecture presented in this paper: https://arxiv.org/abs/2304.03442
+ - Implement a durable version of the conversation manager
 
 ## Usage
 
