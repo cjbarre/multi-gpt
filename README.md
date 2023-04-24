@@ -2,7 +2,7 @@
 
 Hello there, this project is about building a useful interface into the GPT language model from Clojure.
 
-It's a work in progress, but it has a working in-memory conversation manager (conversational memory) and a rudimentary task manager (agents).
+It's a work in progress, but it has a working in-memory conversation manager (conversational memory) and a rudimentary WIP task manager (agents).
 
 It's early days, but I intend to use this in my work and also to learn the fundamentals of interacting with language models.
 
