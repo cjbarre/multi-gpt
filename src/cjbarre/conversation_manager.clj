@@ -25,16 +25,16 @@
       conversation
       (throw (ex-info "Conversation not found" {:conversation-id id}))))
 
-  (update-conversation [this {:keys [id] :as conversation} message]
+  (update-conversation [this {:keys [id] :as conversation} messages]
     (if-let [conversation (get @db id)]
       (if (:active conversation)
-        (let [_ (swap! db update-in [id :messages] conj message)
-              updated-messages (conj (:messages conversation) message)
+        (let [_ (swap! db update-in [id :messages] concat messages)
+              updated-messages (concat (:messages conversation) messages)
               response-chan (core-api/send-request gpt-api updated-messages {})]
           (go
             (let [gpt-response (<! response-chan)]
               (if-not (:core-api/error gpt-response)
-                (swap! db update-in [id :messages] conj gpt-response)
+                (swap! db update-in [id :messages] concat [gpt-response])
                 (swap! db update-in [id :error] assoc gpt-response))
               gpt-response)))
         (throw (ex-info "Conversation is not active" {:conversation-id id})))
