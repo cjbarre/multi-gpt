@@ -15,9 +15,9 @@
 
   (def conversation (create-conversation system))
 
-  (update-conversation system conversation {:role "system" :content "You will help me develop the next breakthrough in distributed systems."})
+  (update-conversation system conversation [{:role "system" :content "You will help me develop the next breakthrough in distributed systems."}])
 
-  (def chat (fn [message] (update-conversation system conversation {:role "user" :content message})))
+  (def chat (fn [message] (update-conversation system conversation [{:role "user" :content message}])))
 
   (chat "Please provide the most cutting edge research topics about these systems.")
 
